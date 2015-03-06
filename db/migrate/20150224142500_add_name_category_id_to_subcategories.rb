@@ -1,0 +1,6 @@
+class AddNameCategoryIdToSubcategories < ActiveRecord::Migration
+  def change
+  	add_column :sub_categories, :name, :string
+  	add_column :sub_categories, :category_id, :integer
+  end
+end
