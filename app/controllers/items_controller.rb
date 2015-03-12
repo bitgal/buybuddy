@@ -30,10 +30,18 @@ class ItemsController < ApplicationController
       if @item.save
         format.html { redirect_to @item, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
+        format.js   {}
       else
         format.html { render :new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def update_sub_categories
+    @sub_categories = SubCategory.where("category_id = ?", params[:category_id])
+    respond_to do |format|
+      format.js
     end
   end
 

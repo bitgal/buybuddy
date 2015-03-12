@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  match 'items/update_sub_categories' => 'items#update_sub_categories', :via => [:get], :as => 'update_sub_categories'
+
   resources :items
 
   devise_for :users
@@ -7,7 +9,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'users#signed_in'
-
+  
+  #get 'items/update_sub_categories', as: 'update_sub_categories'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
