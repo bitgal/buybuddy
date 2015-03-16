@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :category %><br>
-    <%= f.collection_select(:category_id, Category.all, :id, :name, {:include_blank => ' Select a category'}) %>
+    <%= f.autocomplete_field :category_id, autocomplete_category_name_items_path %>
   </div>
   <div class="field">
     <%= f.label :sub_category %><br>
