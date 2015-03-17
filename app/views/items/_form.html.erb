@@ -21,11 +21,11 @@
   </div>
   <div class="field">
     <%= f.label :category %><br>
-    <%= f.autocomplete_field :category_id, autocomplete_category_name_items_path %>
+    <%= f.text_field :category %>
   </div>
   <div class="field">
     <%= f.label :sub_category %><br>
-    <%= f.collection_select(:sub_category_id, SubCategory.all, :id, :name, {:include_blank => 'Select a sub category'}) %>
+    <%= f.collection_select(:sub_category, SubCategory.all, :id, :name, {:include_blank => 'Select a sub category'}) %>
   </div>
   <div class="field">
     <%= f.label :store %><br>

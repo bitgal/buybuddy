@@ -14,3 +14,6 @@ $ ->
         console.log("AJAX Error: #{textStatus}")
       success: (data, textStatus, jqXHR) ->
         alert("Dynamic subcategory select OK!")
+  $( "#item_category" ).autocomplete({
+    source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
+  });
