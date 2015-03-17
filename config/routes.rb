@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
   match 'items/update_sub_categories' => 'items#update_sub_categories', :via => [:get], :as => 'update_sub_categories'
 
-  resources :items do
-    get :autocomplete_category_name, :on => :collection
-    get :autocomplete_sub_category_name, :on => :collection
-    get :autocomplete_store_name, :on => :collection
-  end
-
+  resources :items
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

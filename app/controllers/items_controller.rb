@@ -1,8 +1,5 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  autocomplete :category, :name
-  autocomplete :sub_category, :name
-  autocomplete :store, :name, :extra_data => [:address]
 
   # GET /items
   # GET /items.json
