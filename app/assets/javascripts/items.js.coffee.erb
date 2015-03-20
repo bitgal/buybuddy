@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $(document).on 'change', '#item_category_id', (evt) ->
+  $(document).on 'change', '#item_category', (evt) ->
     $.ajax 'update_sub_categories',
       type: 'GET'
       dataType: 'script'
@@ -13,7 +13,9 @@ $ ->
       error: (jqXHR, textStatus, errorThrown) ->
         console.log("AJAX Error: #{textStatus}")
       success: (data, textStatus, jqXHR) ->
-        alert("Dynamic subcategory select OK!")
-  $( "#item_category" ).autocomplete({
-    source: [ "c++", "java", "php", "coldfusion", "javascript", "asp", "ruby" ]
-  });
+        console.log("Dynamic subcategory script is called")
+  $('#item_category').autocomplete source: (request, response) ->
+    jQuery.get 'autocomplete_categories', { query: request.term }, (data) ->
+      response data
+      return
+    return

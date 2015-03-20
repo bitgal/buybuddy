@@ -45,6 +45,17 @@ class ItemsController < ApplicationController
     end
   end
 
+  def autocomplete_categories
+    # check if we should filter results
+    @categories = if params.has_key?(:query) && !params[:query].empty?
+      Category.where("name ~* ?", ".*#{params[:query]}.*").select(:id, :name)
+    else
+      []
+    end
+
+    render :json => @categories
+  end
+
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
