@@ -16,6 +16,9 @@ $ ->
         console.log("Dynamic subcategory script is called")
   $('#item_category').autocomplete source: (request, response) ->
     jQuery.get 'autocomplete_categories', { query: request.term }, (data) ->
-      response data
+      $.each data, (_, item) ->
+        item.label = item.name
+        return
+      response(data);
       return
     return
