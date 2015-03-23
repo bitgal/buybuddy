@@ -56,6 +56,28 @@ class ItemsController < ApplicationController
     render :json => @categories
   end
 
+  def autocomplete_item_names
+    @names = if params.has_key?(:query) && !params[:query].empty?
+      Item.where("name ~* ?", ".*#{params[:query]}.*").select(:name)
+    else
+      []
+    end
+
+    render :json => @names
+  end
+
+  def autocomplete_sub_categories
+    @sub_categories = if params.has_key?(:query) && !params[:query].empty?
+      SubCategory.where("name ~* ?", ".*#{params[:query]}.*").select(:id, :name)
+    else
+      []
+    end
+
+    render :json => @sub_categories
+  end
+
+  #########################toDo: dry autocomplete_it(model_name)##############################
+
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
