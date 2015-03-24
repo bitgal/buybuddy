@@ -38,5 +38,7 @@ group :development, :test do
   gem 'spring'
 
   gem 'rspec-rails'
+
+  gem 'pry'
 end
 

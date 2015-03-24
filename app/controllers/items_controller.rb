@@ -24,6 +24,10 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
+    item_params.store = Store.where(name:item_params.store)
+    item_params.category = Category.where(name:item_params.category)
+    item_params.store = SubCategory.where(name:item_params.sub_category)
+
     @item = Item.new(item_params)
 
     respond_to do |format|
@@ -74,6 +78,17 @@ class ItemsController < ApplicationController
     end
 
     render :json => @sub_categories
+  end
+
+  def autocomplete_stores
+    @stores = if params.has_key?(:query) && !params[:query].empty?
+      Store.where("name ~* ?", ".*#{params[:query]}.*").select(:id, :name)
+      #toDo add also address field
+    else
+      []
+    end
+
+    render :json => @stores
   end
 
   #########################toDo: dry autocomplete_it(model_name)##############################

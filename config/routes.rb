@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       get 'autocomplete_categories' => 'items#autocomplete_categories', as: :autocomplete_categories   
       get 'autocomplete_sub_categories' => 'items#autocomplete_sub_categories', as: :autocomplete_sub_categories   
       get 'autocomplete_item_names' => 'items#autocomplete_item_names', as: :autocomplete_item_names  
-
+      get 'autocomplete_stores' => 'items#autocomplete_stores', as: :autocomplete_stores  
     end
   end
 

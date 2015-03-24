@@ -12,6 +12,7 @@ $ ->
       }
       error: (jqXHR, textStatus, errorThrown) ->
         console.log("AJAX Error: #{textStatus}")
+        alert("error")
       success: (data, textStatus, jqXHR) ->
         console.log("Dynamic subcategory script is called")
   $('#item_category').autocomplete source: (request, response) ->
@@ -37,4 +38,12 @@ $ ->
         return
       response(data);
       return
-    return
+      return
+  $('#item_store').autocomplete source: (request, response) ->
+    jQuery.get 'autocomplete_stores', { query: request.term }, (data) ->
+      $.each data, (_, item) ->
+        item.label = item.name
+        return
+      response(data);
+      return
+      return
