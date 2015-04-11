@@ -21,7 +21,7 @@
         <td><%= item.name %></td>
         <td><%= item.category.present? ? item.category.name : '' %></td>
         <td><%= item.sub_category.present? ? item.sub_category.name : '' %></td>
-        <td><%= item.store %></td>
+        <td><%= item.store.present? ? item.store.name : '' %></td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>

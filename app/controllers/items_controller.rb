@@ -24,20 +24,21 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    item_params.store = Store.where(name:item_params.store)
-    item_params.category = Category.where(name:item_params.category)
-    item_params.store = SubCategory.where(name:item_params.sub_category)
-
-    @item = Item.new(item_params)
+    @item = Item.new(item_params.merge(
+      store: Store.where(name:item_params[:store]).first,
+      category: Category.where(name:item_params[:category]).first,
+      sub_category: SubCategory.where(name:item_params[:sub_category]).first
+      ))
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render :show, status: :created, location: @item }
-        format.js   {}
+        format.html { redirect_to item_url(@item.id), notice: 'Item was successfully created.' }
+        format.json { }
+        format.js   { }
       else
-        format.html { render :new }
+        format.html { render :new, notice: 'There was a problem creating the item.'  }
         format.json { render json: @item.errors, status: :unprocessable_entity }
+        format.js { render :new, notice: 'There was a problem creating the item.' }
       end
     end
   end
@@ -125,6 +126,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:price, :name, :category_id, :sub_category_id, :store, :category_attributes => [:name], :sub_category_attributes => [:name])
+      params.require(:item).permit(:price, :name, :category, :sub_category, :store, :category_attributes => [:name], :sub_category_attributes => [:name], :store_attributes => [:name])
     end
 end

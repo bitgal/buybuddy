@@ -8,13 +8,12 @@ $ ->
       type: 'GET'
       dataType: 'script'
       data: {
-        category_id: $("#item_category_id option:selected").val()
+        category_id: $("#item_category option:selected").val()
       }
       error: (jqXHR, textStatus, errorThrown) ->
         console.log("AJAX Error: #{textStatus}")
         alert("error")
       success: (data, textStatus, jqXHR) ->
-        console.log("Dynamic subcategory script is called")
   $('#item_category').autocomplete source: (request, response) ->
     jQuery.get 'autocomplete_categories', { query: request.term }, (data) ->
       $.each data, (_, item) ->

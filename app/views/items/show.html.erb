@@ -12,17 +12,32 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @item.category.name %>
+  <%= if @item.category.present? 
+        @item.category.name 
+      else
+        ""
+      end 
+  %>
 </p>
 
 <p>
   <strong>Sub category:</strong>
-  <%= @item.sub_category.name %>
+  <%= if @item.sub_category.present? 
+        @item.sub_category.name 
+      else
+        ""
+      end 
+  %>
 </p>
 
 <p>
   <strong>Store:</strong>
-  <%= @item.store %>
+  <%= if @item.store.present? 
+        @item.store.name 
+      else
+        ""
+      end 
+  %>
 </p>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
