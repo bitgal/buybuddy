@@ -23,15 +23,11 @@
   </div>
   <div class="field">
     <%= f.label :category %><br>
-    <%= f.text_field :category %>
-  </div>
-  <div class="field">
-    <%= f.label :sub_category %><br>
-    <%= f.collection_select(:sub_category, SubCategory.all, :id, :name, {:include_blank => 'Select a sub category'}) %>
+    <%= f.text_field :category, value: @item.category.blank? ? '' : @item.category.name %>
   </div>
   <div class="field">
     <%= f.label :store %><br>
-    <%= f.text_field :store %>
+    <%= f.text_field :store, value: @item.store.blank? ? '' : @item.store.name %>
   </div>
   <div class="actions">
     <%= f.submit %>

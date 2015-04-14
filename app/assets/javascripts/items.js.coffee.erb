@@ -3,17 +3,17 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $(document).on 'change', '#item_category', (evt) ->
-    $.ajax 'update_sub_categories',
-      type: 'GET'
-      dataType: 'script'
-      data: {
-        category_id: $("#item_category option:selected").val()
-      }
-      error: (jqXHR, textStatus, errorThrown) ->
-        console.log("AJAX Error: #{textStatus}")
-        alert("error")
-      success: (data, textStatus, jqXHR) ->
+  # $(document).on 'change', '#item_category', (evt) ->
+  #  $.ajax 'update_sub_categories',
+  #    type: 'GET'
+  #    dataType: 'script'
+  #    data: {
+  #      category_id: $("#item_category option:selected").val()
+  #    }
+  #    error: (jqXHR, textStatus, errorThrown) ->
+  #      console.log("AJAX Error: #{textStatus}")
+  #      alert("error")
+  #    success: (data, textStatus, jqXHR) ->
   $('#item_category').autocomplete source: (request, response) ->
     jQuery.get 'autocomplete_categories', { query: request.term }, (data) ->
       $.each data, (_, item) ->
@@ -46,3 +46,4 @@ $ ->
       response(data);
       return
       return
+  $('#item_price').filter_input({regex:'[0-9]'}); 

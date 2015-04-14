@@ -21,16 +21,6 @@
 </p>
 
 <p>
-  <strong>Sub category:</strong>
-  <%= if @item.sub_category.present? 
-        @item.sub_category.name 
-      else
-        ""
-      end 
-  %>
-</p>
-
-<p>
   <strong>Store:</strong>
   <%= if @item.store.present? 
         @item.store.name 

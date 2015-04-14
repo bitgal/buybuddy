@@ -25,9 +25,8 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(item_params.merge(
-      store: Store.where(name:item_params[:store]).first,
-      category: Category.where(name:item_params[:category]).first,
-      sub_category: SubCategory.where(name:item_params[:sub_category]).first
+      store: string_to_object('Store', item_params[:store]),
+      category: string_to_object('Category', item_params[:category]),
       ))
 
     respond_to do |format|
@@ -92,13 +91,26 @@ class ItemsController < ApplicationController
     render :json => @stores
   end
 
+  def object_to_string(obj)
+    # gets the object for categoryand store out of the string in form
+    model = obj.class.name
+    str = obj.name
+  end
+
+  def string_to_object(model_name, str)
+    model = model_name.constantize
+    object = model.where(name: str).first || model.new(name: str)
+  end
   #########################toDo: dry autocomplete_it(model_name)##############################
 
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
     respond_to do |format|
-      if @item.update(item_params)
+      if @item.update(item_params.merge(
+      store: string_to_object('Store', item_params[:store]),
+      category: string_to_object('Category', item_params[:category]),
+      ))
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
       else
