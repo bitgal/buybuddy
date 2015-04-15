@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @items = params[:category] ? Item.find(category: params[:categoty]) : Item.all
   end
 
   # GET /items/1
@@ -100,6 +100,7 @@ class ItemsController < ApplicationController
   def string_to_object(model_name, str)
     model = model_name.constantize
     object = model.where(name: str).first || model.new(name: str)
+    #Client.find_or_create_by(first_name: 'Andy')
   end
   #########################toDo: dry autocomplete_it(model_name)##############################
 
