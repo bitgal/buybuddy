@@ -3,7 +3,6 @@
 <h1>Listing Items</h1>
 
 <p> Filter items: </p>
-<%= link_to items_path(:category => 'Food') %>
 
 <table>
   <thead>
@@ -34,3 +33,4 @@
 <br>
 
 <%= link_to 'New Item', new_item_path %>
+<%= link_to 'Sign out', destroy_user_session_path %>
