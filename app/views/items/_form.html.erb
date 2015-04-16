@@ -15,19 +15,19 @@
 
   <div class="field">
     <%= f.label :price %><br>
-    <%= f.number_field :price, :step => 'any', :autocomplete => :off %>
+    <%= f.number_field :price, :step => 'any' %>
   </div>
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name, :autocomplete => :off %>
+    <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :category %><br>
-    <%= f.text_field :category, value: @item.category.blank? ? '' : @item.category.name, :autocomplete => :off %>
+    <%= f.text_field :category, value: @item.category.blank? ? '' : @item.category.name %>
   </div>
   <div class="field">
     <%= f.label :store %><br>
-    <%= f.text_field :store, value: @item.store.blank? ? '' : @item.store.name, :autocomplete => :off %>
+    <%= f.text_field :store, value: @item.store.blank? ? '' : @item.store.name %>
   </div>
   <div class="actions">
     <%= f.submit %>
