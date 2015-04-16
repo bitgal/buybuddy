@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(item_params.merge(
+    @item = current_user.items.new(item_params.merge(
       store: string_to_object('Store', item_params[:store]),
       category: string_to_object('Category', item_params[:category]),
       ))
