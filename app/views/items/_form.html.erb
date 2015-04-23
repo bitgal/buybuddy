@@ -21,6 +21,11 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+   <div class="tag_list_field">
+    <%= f.label :tags %><br>
+    <%= f.text_field :tag_list, value: @item.tag_list.to_s  %>
+  </div>
+ 
   <div class="field">
     <%= f.label :category %><br>
     <%= f.text_field :category, value: @item.category.blank? ? '' : @item.category.name %>

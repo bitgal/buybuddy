@@ -11,6 +11,11 @@
 </p>
 
 <p>
+  <strong>Tags:</strong>
+  <%= @item.tag_list %>
+</p>
+
+<p>
   <strong>Category:</strong>
   <%= if @item.category.present? 
         @item.category.name 
