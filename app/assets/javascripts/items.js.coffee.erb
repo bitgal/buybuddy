@@ -22,14 +22,6 @@ $ ->
       response(data);
       return
     return
-  $('#item_sub_category').autocomplete source: (request, response) ->
-    jQuery.get 'autocomplete_sub_categories', { query: request.term }, (data) ->
-      $.each data, (_, item) ->
-        item.label = item.name
-        return
-      response(data);
-      return
-    return
   $('#item_name').autocomplete source: (request, response) ->
     jQuery.get 'autocomplete_item_names', { query: request.term }, (data) ->
       $.each data, (_, item) ->

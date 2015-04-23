@@ -21,6 +21,7 @@ gem 'devise', :git => 'https://github.com/plataformatec/devise.git'
 
 gem 'puma'
 gem 'foundation-rails'
+gem 'acts-as-taggable-on', '~> 3.4'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
