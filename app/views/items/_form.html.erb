@@ -17,10 +17,6 @@
     <%= f.label :price %><br>
     <%= f.number_field :price, :step => 'any' %>
   </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
    <div class="tag_list_field">
     <%= f.label :tags %><br>
     <%= f.text_field :tag_list, value: @item.tag_list.to_s  %>

@@ -5,10 +5,12 @@ class Item < ActiveRecord::Base
  	# belongs_to :sub_category
  	# accepts_nested_attributes_for :sub_category
  	acts_as_taggable
+  acts_as_taggable_on :tags
+	
  	belongs_to :store
  	accepts_nested_attributes_for :store
 
- 	validates :name, presence: true
+ 	validates :tag_list, presence: true
  	validates :category, presence: true
  	validates :store, presence: true
  	validates :price, presence: true

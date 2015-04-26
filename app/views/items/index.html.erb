@@ -8,7 +8,7 @@
   <thead>
     <tr>
       <th>Price</th>
-      <th>Name</th>
+      <th>Tags</th>
       <th>Category</th>
       <th>Store</th>
       <th>usr</th>
@@ -20,7 +20,7 @@
     <% @items.each do |item| %>
       <tr>
         <td><%= item.price %></td>
-        <td><%= item.name %></td>
+        <td><%= item.tag_list %></td>
         <td><%= item.category.name %></td>
         <td><%= item.store.name %></td>
         <td><%= item.user_id %></td>
