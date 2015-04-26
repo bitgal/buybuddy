@@ -22,6 +22,7 @@ gem 'devise', :git => 'https://github.com/plataformatec/devise.git'
 gem 'puma'
 gem 'foundation-rails'
 gem 'acts-as-taggable-on'
+gem 'pickadate-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

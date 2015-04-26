@@ -7,6 +7,7 @@
 <table>
   <thead>
     <tr>
+      <th>Purchase date</th>
       <th>Price</th>
       <th>Tags</th>
       <th>Category</th>
@@ -19,6 +20,7 @@
   <tbody>
     <% @items.each do |item| %>
       <tr>
+        <td><%= item.purchased_time %></td>       
         <td><%= item.price %></td>
         <td><%= item.tag_list %></td>
         <td><%= item.category.name %></td>

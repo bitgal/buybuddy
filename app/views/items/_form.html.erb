@@ -12,6 +12,10 @@
       </ul>
     </div>
   <% end %>
+  <div>
+    <%= f.label :date_of_purchase %><br>
+    <%= f.text_field(:purchased_time, class: "datepicker") %>
+  </div>
 
   <div class="field">
     <%= f.label :price %><br>
