@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
+<p>
+  <strong>Purchased at:</strong>
+  <%= @item.purchased_time.strftime("%v") %>
+</p>
 
 <p>
   <strong>Price:</strong>

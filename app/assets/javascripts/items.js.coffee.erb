@@ -4,7 +4,6 @@
 
 $ ->
   $('.datepicker').pickadate()
-  $('.timepicker').pickatime()
   $('#item_category').autocomplete source: (request, response) ->
     jQuery.get 'autocomplete_categories', { query: request.term }, (data) ->
       $.each data, (_, item) ->
