@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<p><%= link_to 'New Item', new_item_path %> |
+<%= link_to 'Sign out', destroy_user_session_path %></p>
 <h1>Listing Items</h1>
 
 <p> Filter items: </p>
@@ -34,7 +36,3 @@
   </tbody>
 </table>
 
-<br>
-
-<p><%= link_to 'New Item', new_item_path %> |
-<%= link_to 'Sign out', destroy_user_session_path %></p>
