@@ -10,7 +10,7 @@ class Item < ActiveRecord::Base
  	belongs_to :store
  	accepts_nested_attributes_for :store
 
- 	validates :tag_list, presence: true
+ 	#validates :tag_list, presence: true
  	validates :category, presence: true
  	validates :store, presence: true
  	validates :price, presence: true
