@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
   # GET /items
   # GET /items.json
   def index
-    @items = params[:category] ? Item.find(category: params[:categoty]) : Item.all
+    @items = params[:category] ? current_user.items.find(category: params[:categoty]) : current_user.items.all
   end
 
   # GET /items/1
