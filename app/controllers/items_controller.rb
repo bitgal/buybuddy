@@ -102,6 +102,11 @@ class ItemsController < ApplicationController
     object = model.where(name: str).first || model.new(name: str)
     #Client.find_or_create_by(first_name: 'Andy')
   end
+
+  def get_permission(email)
+    #if given email exists in system. send email to ask permission
+    #toDo: create mail layout, create worker, create methode to grant permission or deny it
+  end
   #########################toDo: dry autocomplete_it(model_name)##############################
 
   # PATCH/PUT /items/1

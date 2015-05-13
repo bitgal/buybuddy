@@ -3,7 +3,13 @@
 <p><%= link_to 'New Item', new_item_path %> |
 <%= link_to 'Sign out', destroy_user_session_path %></p>
 <h1>Listing Items</h1>
-
+<p>
+  Get permission to view friends items (enter friend's email)
+  <%= form_tag "/items_controller/get_permission" do %>
+  <%= text_field_tag "email" %>
+  <%= submit_tag "Get Permission" %>
+<% end %>
+</p>
 <p> Filter items: </p>
 
 <table>
