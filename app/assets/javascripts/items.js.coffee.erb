@@ -2,8 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$ ->
-  $('.datepicker').pickadate()
+$(document).ready ->
   $('#item_category').autocomplete source: (request, response) ->
     jQuery.get 'autocomplete_categories', { query: request.term }, (data) ->
       $.each data, (_, item) ->
@@ -28,3 +27,4 @@ $ ->
       response(data);
       return
       return
+  $('.datepicker').pickadate()

@@ -10,10 +10,11 @@ class Item < ActiveRecord::Base
  	belongs_to :store
  	accepts_nested_attributes_for :store
 
- 	#validates :tag_list, presence: true
+ 	validates :tag_list, presence: true
  	validates :category, presence: true
  	validates :store, presence: true
  	validates :price, presence: true
+ 	has_one :purchased_time
 
  	def matched_subcategories
  		@matched_subcategories = SubCategory.find(category_id = self.category_id)

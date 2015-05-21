@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(version: 20150512200848) do
     t.integer  "category_id"
     t.integer  "sub_category_id"
     t.integer  "store_id"
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "user_id"
-    t.datetime "purchased_time",  default: '2015-05-13 07:05:35'
+    t.datetime "purchased_time"
   end
 
   create_table "stores", force: :cascade do |t|
